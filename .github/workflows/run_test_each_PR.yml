@@ -39,13 +39,13 @@ jobs:
         run: |
           pytest --browser chromium -s --reruns 3 --junit-xml=test-results.xml
 
-      - name: Surface failing tests
-        if: always()
-        uses: pmeier/pytest-results-action@v0.3.0
-        with:
-          path: test-results.xml
-          summary: true
-          fail-on-empty: false
+      # - name: Surface failing tests
+      #   if: always()
+      #   uses: pmeier/pytest-results-action@v0.3.0
+      #   with:
+      #     path: test-results.xml
+      #     summary: true
+      #     fail-on-empty: false
 
       - uses: actions/upload-artifact@v3
         if: failure()
